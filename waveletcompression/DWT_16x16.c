@@ -1,11 +1,18 @@
-//A very simple cosine transform for blocks of images
-//This code is O(N^2), there are more efficient ways to compute DCTs
-//OpenCV has faster DCT transform implementations
 #include "stdio.h"
 #include "math.h"
 #define PI 3.14159265358979323846264338327950288419716939937510582097494459230
 #define N 16  
 
+
+// written by Hongyu ZHOU(Oscar) , 16242950 and Bohong CAO(Echo), 15306483
+
+/*********************************************************************************************
+ * Compile with:
+ * g++ -o DWT DWT_16x16.c 
+ * Execute static code: for example
+ * ./DWT 
+ *
+*********************************************************************************************/
 
 
 void DWT(float* data, int size)
@@ -178,6 +185,7 @@ main(){
 	#endif
 
 
+	printf("Original Array: \n");
 	for (int a=0;a<N;a++)
 	{
 
@@ -189,8 +197,7 @@ main(){
 	
 	}
 
-	#if 1
-	int times = 1;  //transform times
+	int times = 1;  //*******transform times
 
 	for(int i =0; i<times;i++)
 	{
@@ -229,7 +236,6 @@ main(){
 			} 
 	
 		}
-		printf("\n");
 
 		for (int a=0;a<N;a++)
 		{
@@ -241,6 +247,7 @@ main(){
 	
 		}
 
+		printf("Transformed Array: \n");
 
 		for (int a=0;a<N;a++)
 		{
@@ -252,9 +259,10 @@ main(){
 			} 
 	
 		}
-		////////////////////////////////////
-
-
+		/****************************************/
+		/************ the code only can reconstruct for one time transform ************/
+		/************ but the transform is not limited ************/
+		
 		for (int a=0;a<N;a++)
 		{
 
@@ -267,19 +275,6 @@ main(){
 			for (int b=0;b<n;b++)
 			{
 				C[b][a]=row[b];
-			} 
-	
-		}
-
-		printf("print C::::\n\n\n");
-
-		for (int a=0;a<N;a++)
-		{
-
-			for (int b=0;b<N;b++)
-			{
-				printf("%f  ",C[a][b]);
-				if (((b+1)%N)==0) printf("\n");
 			} 
 	
 		}
@@ -299,6 +294,7 @@ main(){
 	
 		}
 
+		printf("\nReconstructed Array: \n");
 		for (int a=0;a<N;a++)
 		{
 
@@ -309,6 +305,7 @@ main(){
 			} 
 	
 		}
+		
 
 		delete(row);
 	}
