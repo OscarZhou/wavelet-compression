@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1496182147 source:/home/oscar/Downloads/waveletcompression/main.cpp
+	<iostream>
+	<stdlib.h>
+	<opencv2/opencv.hpp>
+	<math.h>
+	<set>
+	<utility>
+
