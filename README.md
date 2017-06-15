@@ -6,11 +6,16 @@ a seminar for wavelet compression technology
 
 ### DWT16x16
 
-command: g++ DWT_16X16.C -O dwt
-        ./dwt
+ * Compile with:
+ * g++ -o DWT DWT_16x16.c 
+ * Execute static code: for example
+ * ./DWT
 
 
 ### Complex DWT algorithm
-
-command: g++ -std=c++0x -o main -O3 main.cpp `pkg-config --libs --cflags opencv`
-      ./main
+```
+ * Compile with:
+ * g++ -std=c++0x -o waveletcompression -O3 waveletcompression.cpp `pkg-config --libs --cflags opencv`
+ * Execute static code: for example
+ * ./waveletcompression ~/Downloads/lena.jpg
+```
